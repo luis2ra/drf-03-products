@@ -11,3 +11,11 @@ class IsAdminOrReadOnly(BasePermission):
         else:
             print('se hace una petición distinta a SAFE_METHODS...')
             return request.user.is_staff
+
+
+class IsOwnerOrReadOnly(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.method in SAFE_METHODS:
+            return True
+
+        return obj.created_by == request.user
