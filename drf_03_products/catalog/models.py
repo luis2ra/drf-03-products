@@ -19,4 +19,4 @@ class Review(models.Model):
     title = models.CharField(max_length=255)
     review = models.TextField()
     rating = models.IntegerField()
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)    
+    # created_by = models.ForeignKey(User, on_delete=models.CASCADE)    

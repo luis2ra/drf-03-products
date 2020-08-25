@@ -15,7 +15,7 @@ from .permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 class ProductList(ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = (IsAdminOrReadOnly, )
+    permission_classes = (IsOwnerOrReadOnly, )
 
 
 class ProductDetail(RetrieveUpdateDestroyAPIView):
@@ -35,8 +35,9 @@ class ReviewList(ListCreateAPIView):
     created_by and product_id fields.
     '''
     def perform_create(self, serializer):
+        print(self.request.user.pk)
         serializer.save(
-            created_by=self.request.user,
+            # created_by=self.request.user,
             product_id=self.kwargs['pk'])
 
 
