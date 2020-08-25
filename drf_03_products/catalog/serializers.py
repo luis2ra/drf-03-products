@@ -6,4 +6,5 @@ class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Product
-        fields = ('name', 'description', 'price')
+        # se agrega el id del producto para usarse en ProductDetail
+        fields = ('id', 'name', 'description', 'price')
