@@ -37,7 +37,7 @@ class ReviewList(ListCreateAPIView):
     def perform_create(self, serializer):
         print(self.request.user.pk)
         serializer.save(
-            # created_by=self.request.user,
+            created_by=self.request.user.id,
             product_id=self.kwargs['pk'])
 
 

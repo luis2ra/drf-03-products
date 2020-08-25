@@ -10,12 +10,12 @@ username instead of the id (to make it more human readable)
 
 '''
 class ReviewSerializer(serializers.ModelSerializer):
-    # created_by = serializers.ReadOnlyField(source='created_by.pk')
+    # created_by = serializers.ReadOnlyField(source='created_by.id')
 
     class Meta:
         model = Review
-        #fields = ('id', 'title', 'review', 'rating', 'created_by')
-        fields = ('id', 'title', 'review', 'rating')
+        fields = ('id', 'title', 'review', 'rating', 'created_by')
+        #fields = ('id', 'title', 'review', 'rating')
 
 
 '''
